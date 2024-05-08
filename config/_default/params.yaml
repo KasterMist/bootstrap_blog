@@ -1,7 +1,7 @@
 mainSections:
   - blog
   - posts
-  - news
+  - docs
 
 # titleSeparator: '|' # Title separator. Default to -.
 
@@ -15,9 +15,9 @@ keywords: Hugo, Bootstrap, Blog Theme
 
 # logo: images/logo.png # Logo image. Default to images/logo.webp.
 # logo: false # Disable Logo
-brand: HBS
+brand: Main Page
 
-palette: purple # Default palette. Optional. You'll need to clear the browser cache after modifying this.
+palette: blue-gray # Default palette. Optional. You'll need to clear the browser cache after modifying this.
 # Available palettes. Default to ALL. Empty array means disable.
 # palettes:
 #  - blue
@@ -204,8 +204,8 @@ search:
   # debug: true
 
 reward:
-  alipay: images/reward/alipay.png
-  wechat: images/reward/wechat.png
+  alipay: images/reward/alipay.jpg
+  wechat: images/reward/wechat.jpg
   #paypal: images/reward/paypal.png
   #patreon: images/reward/patreon.png
   #liberapay: images/reward/liberapay.png
@@ -256,9 +256,9 @@ repo:
 topAppBar:
   # See https://hbs.razonyang.com/v1/en/docs/widgets/social-links/.
   social:
-    github: razonyang/hugo-theme-bootstrap
-    patreon: razonyang
-    paypal: razonyang
+    github: KasterMist
+    # patreon: 
+    # paypal: 
 
 #docs:
   # nav:
@@ -269,36 +269,46 @@ topAppBar:
 
 social:
   # See https://hbs.razonyang.com/v1/en/docs/widgets/social-links/.
-  email: user@domain.tld
-  facebook: yourfacebookusername
-  github: razonyang/hugo-theme-bootstrap
-  gitlab: yourgitlabusername
-  linkedin: yourlinkedinusername
-  xing: yourxingusername
-  stackoverflow: yourstackoverflowuserid
-  twitter: yourtwitterusername
-  weibo: yourweibousername
-  zhihu: yourzhihuusername
-  instagram: yourinstagramusername
-  quora: yourquorausername
-  tumblr: yourtumblrusername
-  reddit: yourredditusername
-  telegram: yourtelegramusername
-  qq: yourqqnumber
-  dockerhub: yourdockerhubusername
-  bitbucket: yourbitbucketworkspaceid
-  kaggle: yourkaggleusername
-  medium: yourmediumusername # Medium username or custom domain(e.g. https://custom.domain.tld).
-  lastfm: yourlastfmusername
-  bilibili: yourbilibiliuserid
-  youtube: youryoutubechannelid
-  discord: yourdiscordinvitecode
-  discourse: https://yourforum.tld
-  facebookgroup: yourfacebookgroupname
-  tiktok: yourtiktokusername
-  pinterest: yourpinterestusername
-  mastodon: yourmastodonusername
-  liberapay: yourliberapayaccount
-  paypal: razonyang
-  patreon: razonyang
-  tipeee: yourtipeeeaccount-fr
+  # email: user@domain.tld
+  # facebook: yourfacebookusername
+  # github: razonyang/hugo-theme-bootstrap
+  # gitlab: yourgitlabusername
+  # linkedin: yourlinkedinusername
+  # xing: yourxingusername
+  # stackoverflow: yourstackoverflowuserid
+  # twitter: yourtwitterusername
+  # weibo: yourweibousername
+  # zhihu: yourzhihuusername
+  # instagram: yourinstagramusername
+  # quora: yourquorausername
+  # tumblr: yourtumblrusername
+  # reddit: yourredditusername
+  # telegram: yourtelegramusername
+  # qq: yourqqnumber
+  # dockerhub: yourdockerhubusername
+  # bitbucket: yourbitbucketworkspaceid
+  # kaggle: yourkaggleusername
+  # medium: yourmediumusername # Medium username or custom domain(e.g. https://custom.domain.tld).
+  # lastfm: yourlastfmusername
+  # bilibili: yourbilibiliuserid
+  # youtube: youryoutubechannelid
+  # discord: yourdiscordinvitecode
+  # discourse: https://yourforum.tld
+  # facebookgroup: yourfacebookgroupname
+  # tiktok: yourtiktokusername
+  # pinterest: yourpinterestusername
+  # mastodon: yourmastodonusername
+  # liberapay: yourliberapayaccount
+  # paypal: razonyang
+  # patreon: razonyang
+  # tipeee: yourtipeeeaccount-fr
+  rss: ""
+
+favicon:
+  sizes:
+  - size: 16x16
+  - size: 32x32
+  - size: 150x150
+  - rel: apple-touch-icon
+    size: 180x180
+  - size: 192x192

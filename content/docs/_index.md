@@ -1,5 +1,5 @@
 ---
-title: Docs Sample
+title: Docs 
 menu:
   main:
     weight: 1
