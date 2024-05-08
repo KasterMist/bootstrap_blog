@@ -45,6 +45,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./public
 
 # # Sample workflow for building and deploying a Hugo site to GitHub Pages
