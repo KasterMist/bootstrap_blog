@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://KasterMist.com/sitemap.xml
+Sitemap: https://hbs-skeleton.netlify.app/sitemap.xml
