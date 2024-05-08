@@ -39,7 +39,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo -D --minify --gc --enableGitInfo -b https://KasterMist.com 
+        run: hugo --minify
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v4
