@@ -5,7 +5,7 @@ description: 	""
 date:        	2024-04-04
 #type:   		docs
 featured:    	false
-draft:    		true
+draft:    		false
 comment:    	true
 toc:    		true
 reward:    		true
