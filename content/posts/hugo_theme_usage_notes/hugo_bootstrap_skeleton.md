@@ -10,8 +10,8 @@ reward: true
 pinned: false
 carousel: false
 series:
-categories: ["Hugo Bootstrap Skeleton"]
-tags: ["draft"]
+categories: ["draft"]
+tags: ["Hugo Bootstrap Skeleton"]
 images: []
 ---
 
