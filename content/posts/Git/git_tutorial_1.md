@@ -12,7 +12,7 @@ carousel: false
 series:
 categories: ["Tutorial"]
 tags: ["Git"]
-images: []
+images: ["images/logo/git.jpg"]
 ---
 
 本文章根据"Learn Git Branching"网站进行记录知识点。该网站将git流程可视化，可以很好的学习git相关知识。如果有兴趣，可以访问该网站: https://learngitbranching.js.org/?locale=zh_CN

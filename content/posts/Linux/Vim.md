@@ -13,7 +13,7 @@ pinned:    		false
 carousel:    	true
 categories:     ["Note"]
 tags:    		["Linux", "Linux Command"]
-images:    		["/images/vim.png"]
+images:    		["/images/logo/vim.png"]
 authors:
 ---
 
