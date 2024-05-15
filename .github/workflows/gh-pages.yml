@@ -16,9 +16,6 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Create CNAME file
-        run: echo "www.kastermist.com" > ./CNAME
-
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -43,6 +40,9 @@ jobs:
 
       - name: Build
         run: hugo --minify --gc --enableGitInfo -b https://KasterMist.com 
+
+      - name: Create CNAME file
+        run: echo "www.kastermist.com" > ./CNAME
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v4
