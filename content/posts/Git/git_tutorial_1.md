@@ -63,5 +63,3 @@ images: []
 
 ![git_tutorial_1_5](Git/git_tutorial_1_5.png?width=300px&height=360px) ![git_tutorial_1_6](Git/git_tutorial_1_6.png?width=300px&height=360px#float-end)
 
-
-
