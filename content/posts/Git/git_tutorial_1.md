@@ -48,3 +48,7 @@ images: []
 如果再把`main`分支合并到`bugFix`分支，就会让两个分支都包含所有的修改，使用`git checkout bugFix`和`git merge main`即可实现，如下图所示:
 
 ![git_tutorial_1_3](Git/git_tutorial_1_2.png?width=300px&height=360px)![git_tutorial_1_2](Git/git_tutorial_1_3.png?width=300px&height=360px#float-end)
+
+#### git rebase
+
+`git rebase`是另一种合并方法，Rebase 实际上就是取出一系列的提交记录，“复制”它们，然后在另外一个地方逐个的放下去。
