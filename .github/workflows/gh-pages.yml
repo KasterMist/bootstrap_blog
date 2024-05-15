@@ -39,10 +39,10 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --gc --enableGitInfo -b https://KasterMist.com; echo "www.kastermist.com" > CNAME
+        run: hugo --minify --gc --enableGitInfo -b https://KasterMist.com
 
-      # - name: Create CNAME file
-      #   run: 
+      - name: Create CNAME file
+        run: echo "www.kastermist.com" > ./public/CNAME 
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v4
