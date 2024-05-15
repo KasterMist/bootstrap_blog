@@ -1,0 +1,19 @@
+<style>
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .gallery img {
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="gallery">
+  {{ $numCols := .Get 0 | default "3" | int }}
+  {{ range $index, $image := .Params }}
+    {{ if ne $index 0 }}
+      <img src="{{ $image | relURL }}" style="width: {{ sub 100 $numCols | div $numCols | mul 0.95 }}%;" alt="Gallery Image {{ add $index 1 }}" />
+    {{ end }}
+  {{ end }}
+</div>
