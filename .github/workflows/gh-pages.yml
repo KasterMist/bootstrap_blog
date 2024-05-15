@@ -16,6 +16,9 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - name: Create CNAME file
+        run: echo "www.kastermist.com" > ./CNAME
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
