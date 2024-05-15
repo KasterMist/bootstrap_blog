@@ -42,7 +42,7 @@ jobs:
         run: hugo --minify --gc --enableGitInfo -b https://KasterMist.com
 
       - name: Create CNAME file
-        run: echo "www.kastermist.com" > ./public/CNAME 
+        run: echo "kastermist.com" > ./public/CNAME 
 
       - name: Deploy 🚀
         uses: peaceiris/actions-gh-pages@v4
