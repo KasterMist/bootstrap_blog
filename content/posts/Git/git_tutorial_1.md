@@ -51,7 +51,7 @@ images: ["images/logo/git.jpg"]
 
 |                            变化前                            |                            变化后                            |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![git_tutorial_1_3](Git/git_tutorial_1_3.png?fill=300x360,Smart) | ![git_tutorial_1_4](Git/git_tutorial_1_4.png?fill=300x360,Smart) |
+| ![git_tutorial_1_2](Git/git_tutorial_1_2.png?fill=300x360,Smart) | ![git_tutorial_1_3](Git/git_tutorial_1_3.png?fill=300x360,Smart) |
 
 
 

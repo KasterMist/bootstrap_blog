@@ -15,7 +15,7 @@ tags: ["Git"]
 images: ["images/logo/git.jpg"]
 ---
 
-本章将着重介绍如何更清晰的整理提交记录。
+本章将着重介绍如何更清晰的整理提交记录，git tag和git describe的用法。
 
 <!--more-->
 
@@ -45,3 +45,14 @@ images: ["images/logo/git.jpg"]
 - 删除不想要的提交(通过切换pick的状态来完成，关闭就意味着你不想要这个提交记录)
 - 合并提交(把多个提交记录合并成一个)
 
+## git tag
+
+分支很容易被人为移动，并且当有新的提交时，它也会移动。分支很容易被改变，大部分分支还只是临时的，并且还一直在变。而使用tag可以永远指向某个提交记录的标识。比如使用`git tag <tag name>`即可在当前分支创建一个tag。使用`git tag <tag name> <ref>`可以在对应引用的记录下创建一个tag。
+
+## git describe
+
+git describe可以用来描述最近的tag。
+
+其语法为`git describe <ref>`。ref可以是任何能被git识别成提交记录的引用，如果你没有指定的话，git会使用你目前所在的位置(HEAD)。
+
+输出结果为: `<tag>_<numCommits>_g<hash>`。tag表示的是离ref最近的标签，numCommits是表示这个ref与tag相差有多少个提交记录，hash表示的是你所给定的ref所表示的提交记录哈希值的前几位。当ref提交记录上有某个tag时，则只输出tag名称。
