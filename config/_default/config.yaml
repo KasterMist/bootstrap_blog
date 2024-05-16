@@ -1,4 +1,4 @@
-baseURL: https://hbs-skeleton.netlify.app/
+baseURL: https://kastermist.com
 title: Kaster Mist's Blog
 theme: hugo-theme-bootstrap 
 copyright: 'Copyright © 2024-{year} Kaster. All Rights Reserved.'
