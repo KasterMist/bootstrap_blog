@@ -30,7 +30,7 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 
 创建或编辑一个文件: `vim filename` (如果filename不存在，则创建该文件)
 
-#### vim的三种模式
+## vim的三种模式
 
 1. 普通模式 (Normal mode) / 命令模式 (Command mode): 默认模式，用于导航、删除、复制等操作。
 2. 插入模式 (Insert mode): 用于输入文本。
@@ -50,7 +50,7 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 - 在行首插入: `I`
 - 特殊模式 replace mode: 输入`R`即可进入replace模式，此时输入的字符会替换当前字符(即先删除当前字符再输入新的字符)
 
-#### 光标移动
+### 光标移动
 
 基础部分
 
@@ -72,7 +72,7 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 - 移动到下一个没有匹配的右大括号处: `]}`
 - 修改大小写(如果是大写，则修改为小写。如果是小写，则修改为大写): `~`
 
-#### 保存与退出
+### 保存与退出
 
 - 保存: `:w`
 - 退出: `:q`
@@ -81,12 +81,12 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 - 在vim里面运行命令行: `:!`后带命令，可以将`:`后的`!`理解为允许vim执行外部命令。
 - 在visual mode中选取多行后，可以通过`:w filename`将选取的行保存到filename当中。
 
-#### 提取、合并文件
+### 提取、合并文件
 
 - 在当前位置插入另外文件的内容: `:r filename`
 - `:r`也可以读取外部命令的输出，比如可以通过`:r!ls`来将ls的输出放置到当前光标下面
 
-#### 复制粘贴, 替换修改
+### 复制粘贴, 替换修改
 
 - 复制: `yy`
 - 粘贴: `p`
@@ -98,34 +98,34 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
   - 从光标处删除到行尾柄并自动转换到插入模式进行修改:`c$`
   - 该变文本直到一个单词的末尾并自动转换到插入模式进行修改: `ce`
 
-#### 定位
+### 定位
 
 - 输入`Ctrl-G`即可得知当前光标所在行位置以及文件信息
 - 光标跳转到最后一行: `G`
 - 光标跳转到第一行: `gg`
 - 跳转到指定行: `number G`
 
-#### 撤销
+### 撤销
 
 - 撤销: `u`
 - 撤销一整行的修改: `U`
 - 重写: `Ctrl-R`
 
-#### 删除
+### 删除
 
 - 删除整行: `dd`
 - 删除当前字符: `x`
 - 删除到行尾: `D`
 - 在visual mode中选取文本内容后可以通过输入`d`删除选中的文本内容。
 
-#### 组合快捷键
+### 组合快捷键
 
 - 删除两个单词: `d2w`
 - 删除单词，执行两次: `2dw`
 - 删除两个单词，执行两次: `2d2w`
 - 在视图模式下选中后5行删除: `d5j`
 
-#### 搜索替换
+### 搜索替换
 
 - 在当前光标下搜索下一个匹配的信息: `/` + 匹配的信息
 - 在当前光标下搜索上一个匹配的信息: `?` + 匹配的信息
@@ -167,13 +167,13 @@ flag list
 
 此外，使用`sed`可以直接将某个文件里面的某个信息替换为另一个信息: `sed -i "[range]s/from/to/[flags]" filename`就是将filename文件中的from替换为to。`-i`表示在文件内更改。否则更改结果只会在终端中打印出来。
 
-#### 分窗口
+### 分窗口
 
 - 生成水平的窗口: `:sp`
 - 生成垂直窗口: `:vsp`
 - 移动到另一个窗口操作: `Ctrl-W` + `[hjkl]`
 
-#### 滚动窗口
+### 滚动窗口
 
 1. `Ctrl+E` - 向下滚动窗口一行，不移动光标。
 2. `Ctrl+Y` - 向上滚动窗口一行，不移动光标。
@@ -185,7 +185,7 @@ flag list
 8. `zt` - 将当前行移至窗口顶部，光标位置不变。
 9. `zb` - 将当前行移至窗口底部，光标位置不变。
 
-#### 生成标签 (便于跳转)
+### 生成标签 (便于跳转)
 
 生成的标签可以是小写字母a-z或者大写字母a-z，也可以是数字0-9。小写字母的标记，仅用于当前缓冲区；而大写字母的标记和数字0-9的标记，则可以跨越不同的缓冲区。小写字母的标签可以被`delmarks!`删除，大写字母和0-9不行。大写字母和0-9只能通过`delmarks character`来进行删除
 
@@ -198,7 +198,7 @@ flag list
 - 删除A-Z的标签: `:delmarks A-Z`
 - 删除所有标签(不包括大写的标签): `:delmarks!`
 
-#### 注释代码
+### 注释代码
 
 可以使用visual block模式来注释多行代码
 
@@ -218,11 +218,11 @@ vim -u NONE -c "helptags commentary/doc" -c q
 
 Use `gcc` to comment out a line (takes a count), `gc` to comment out the target of a motion.
 
-#### 代码补全
+### 代码补全
 
 在vim中自带了基础的自动补全功能。但该功能的局限之处在于，只能补全之前已经出现过的单词。当写好了单词一部分后，输入`Ctrl-N`，自动补全功能会出现提供匹配列表、完成补全、匹配失败等三种不同的情况。
 
-#### 代码跳转
+### 代码跳转
 
 可以下载ctags来跳转到某对象的定义位置。
 
@@ -236,7 +236,7 @@ vim打开文件后，在对应的声明的地方按`Ctrl-]`就可以自动跳转
 
 
 
-#### vim相关的插件
+## vim相关的插件
 
 **插件网站:** https://vimawesome.com/
 
@@ -271,13 +271,13 @@ call plug#end()
 
 之后重启vim就可以使用Plugin插件。在vim打开文件内输入`:Pluginstall`即可下载`~/.vimrc`中声明的插件。输入`:PluginUpdate`可以更新`~/.vimrc`中新添加的插件。输入`:PlugClean`可以清楚`~/.vimrc`中被删除的插件。
 
-##### fzf.vim
+### fzf.vim
 
 https://github.com/junegunn/fzf.vim
 
 该插件包含了fzf的很多功能，并且移植到了vim中。可以使用诸如`:Ag`等功能。详情可以查看上面的源码链接。
 
-##### NERDTree
+### NERDTree
 
 NERDTree可以在vim打开文件后在左边栏显示当前路径下的文件。
 
@@ -286,13 +286,13 @@ NERDTree可以在vim打开文件后在左边栏显示当前路径下的文件。
 - 在对应的vim界面命令行模式下输入退出命令，q!或wq，即可退出对应的界面。
 - 在`~/.vimrc`中添加`autocmd VimEnter * NERDTree`即可在vim打开文件后自动开启NERDTree插件。
 
-##### EasyComplete
+### EasyComplete
 
 https://zhuanlan.zhihu.com/p/366496399
 
 超轻量级的vim代码补全工具，如果想要更全面的补全功能，可以尝试coc
 
-##### vim-colors-solarized
+### vim-colors-solarized
 
 https://vimawesome.com/plugin/vim-colors-solarized-ours
 
