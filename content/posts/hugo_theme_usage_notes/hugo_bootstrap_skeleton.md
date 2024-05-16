@@ -1,7 +1,7 @@
 ---
 # type: docs 
 title: Hugo Bootstrap Skeleton Notes
-date: 2024-05-13T16:00:44+08:00
+date: 2024-05-02T16:00:44+08:00
 featured: false
 draft: false
 comment: true
