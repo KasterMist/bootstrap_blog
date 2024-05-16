@@ -1,7 +1,7 @@
 baseURL: https://hbs-skeleton.netlify.app/
-title: Hugo Bootstrap Skeleton
+title: Kaster Mist's Blog
 theme: hugo-theme-bootstrap 
-copyright: 'Copyright © 2016-{year} Razon Yang. All Rights Reserved.'
+copyright: 'Copyright © 2024-{year} Kaster. All Rights Reserved.'
 defaultContentLanguage: en
 # hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
 # defaultContentLanguageInSubdir: true
