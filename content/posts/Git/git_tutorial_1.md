@@ -73,5 +73,4 @@ images: ["images/logo/git.jpg"]
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | ![git_tutorial_1_5](Git/git_tutorial_1_5.png?fill=300x360,Smart) | ![git_tutorial_1_6](Git/git_tutorial_1_6.png?fill=300x360,Smart) |
 
-
-
+此外，如果git rebase后面跟两个分支名称的话，例如`git rebase main bugFix`，意思就是将bugFix分支移到main分支下面。
