@@ -15,7 +15,7 @@ tags: ["Git"]
 images: ["images/logo/git.jpg"]
 ---
 
-本章将着重介绍如何更清晰的整理提交记录，git tag和git describe的用法。
+本章将着重介绍如何更清晰的整理提交记录，git tag和git describe的用法，以及一些复杂的样例来熟练掌握git常用指令。
 
 <!--more-->
 
@@ -56,3 +56,34 @@ git describe可以用来描述最近的tag。
 其语法为`git describe <ref>`。ref可以是任何能被git识别成提交记录的引用，如果你没有指定的话，git会使用你目前所在的位置(HEAD)。
 
 输出结果为: `<tag>_<numCommits>_g<hash>`。tag表示的是离ref最近的标签，numCommits是表示这个ref与tag相差有多少个提交记录，hash表示的是你所给定的ref所表示的提交记录哈希值的前几位。当ref提交记录上有某个tag时，则只输出tag名称。
+
+## 复杂的实践操作
+
+### 多次rebase
+
+下图给出了初始树的状态和变化后的树的状态，要求只使用`git rebase`
+
+|                            变化前                            |                            变化后                            |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![git_tutorial_3_3](Git/git_tutorial_3_3.png?fill=300x240,Left) | ![git_tutorial_3_4](Git/git_tutorial_3_4.png?fill=300x360,Left) |
+
+步骤最少的命令如下:
+
+1. `git rebase main bugFix`
+2. `git rebase bugFix side`
+3. `git rebase side another`
+4. `git rebase another main`
+
+下图展示了变化输入命令的变化情况：
+
+![git_tutorial_3_5](/Users/xieletian/学习资料/博客信息/bootstrap_blog/content/posts/Git/Git/git_tutorial_4_5.gif)
+
+### 两个parent节点
+
+操作符`^`和`~`一样，后面都可以跟数字。`^`后面跟数字是指定合并提交记录的某个parent提交。这在某个位置上有多个parent提交的情况下十分有用。下面的例子展示了使用`git checkout main^`和`git checkout main^2`的情况:
+
+|                            变化前                            |                     `git checkout main^`                     |                    `git checkout main^2`                     |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+| ![git_tutorial_3_6](Git/git_tutorial_3_6.png?fill=300x240,Left) | ![git_tutorial_3_7](Git/git_tutorial_3_7.png?fill=300x360,Center) | ![git_tutorial_3_8](Git/git_tutorial_3_8.png?fill=300x360,Center) |
+
+此外，这种操作符也支持链式操作，比如`git checkout main~^2~2`。
