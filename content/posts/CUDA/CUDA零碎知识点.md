@@ -3,7 +3,7 @@
 title: CUDA零碎知识点
 date: 2024-06-06T09:42:20+08:00
 featured: false
-draft: true
+draft: false
 comment: true
 toc: true
 reward: true
