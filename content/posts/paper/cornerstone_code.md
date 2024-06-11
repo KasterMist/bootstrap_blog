@@ -37,6 +37,8 @@ decomposition的规则是什么？
 
 ### domain
 
+**注: 如果domain设置tag为GPU的话，里面的一些变量会存储到device里面，访问时需要注意！！！**
+
 #### domain.hpp
 
 domain class用来管理分布式的particles以及halos (用于多进程，多GPU的情况)
@@ -410,7 +412,41 @@ rank0和1进程的domain的x, y, z坐标为{0.5, 0.5, 0.6, 0.6}, 点的半径为
 
 ##### void domainHaloRadii(int rank, int nRanks)
 
+#### domain_gpu.cpp
 
+注: 里面的RandomCoordinates generation是每个rank各自生成各自的点。
+
+##### TEST(DomainGpu, matchTreeCpu)
+
+测试CPU和GPU版本的domain.sync是否得到相同的结果。
+
+##### TEST(DomainGpu, reapplySync)
+
+测试GPU条件下reapplySync是否正确
+
+#### exchange\_domain\_gpu.cpp
+
+##### TEST(GlobalDomain, exchangeAllToAll)
+
+测试exchangeParticlesGPU的效果。
+
+exchangeAllToAll会让每个rank的data保留1/numrank，剩下的分发给其他的rank。
+
+exchangeParticles()就是使用mpi进行particles传递。
+
+exchangeParticlesGPU()在exchangeParticles()基础上加上了从device上传递数据回host，再通过host进行communicate数据，最后再将更新的数据从host传递到device上。mpi\_cuda的send和recv函数在primitives/mpi\_cuda.cuh上。
+
+**注:有一种GPU-direct的方式传输，可能是GPU之间直接进行通信**
+
+#### exchange\_halos\_gpu.cpp
+
+##### TEST(HaloExchange, gpuDirect)
+
+测试使用GPU\_direct的情况下MPI直接对GPU的信息进行传递是否能够成功。
+
+##### TEST(HaloExchange, simpleTest)
+
+检测使用haloExchangeGpu()是否能正确的交换halo particles信息。
 
 #### treedomain.cpp
 
