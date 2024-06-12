@@ -564,3 +564,7 @@ domain.sync()里面之后会调用setupHalos()，其中就有exchangeHalos的调
 
 综上，halo的信息可以理解为是所有particle的信息。**具体详细流程分析起来过于复杂，如果有时间可以继续深入研究。**
 
+
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: 		 	"Vim"
+title: 		 	"Vim用法 (一)"
 subtitle:    	""
 description: 	""
 date:        	2024-04-13
@@ -100,6 +100,13 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 
 **注: 使用复制或者删除的时候复制或删除的内容会存到寄存器中，在当前vim环境下面可以进行粘贴，但是无法在vim外进行粘贴。如果想要将内容复制到剪贴板中，可以在visual mode下选中信息后输入`"+y`来将选中的信息复制到剪贴板中。注意需要通过`vim --version | grep clipboard`查看vim版本是否支持剪贴板。如果输出包含了`+clipboard`，则说明vim版本支持剪贴板。**
 
+修改数字:
+
+- 直接跳转到第一个数字并加1: `Ctrl-a`
+- 直接跳转到第一个数字并减1: `Ctrl-x`
+- 可以在前面加上数字来表示执行多次: `10Ctrl-a`执行10次加1
+- vim把以0开头的数字解释为八进制值，而不是十进制。如果想要修改默认为十进制，则可以在vimrc中添加`set nrformats=`
+
 ### 定位
 
 - 输入`Ctrl-G`即可得知当前光标所在行位置以及文件信息
@@ -125,6 +132,7 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 - 删除当前字符并进入插入模式: `s`
 - 删除到行尾: `D`
 - 在visual mode中选取文本内容后可以通过输入`d`删除选中的文本内容。
+- 删除该单词(只要光标在该单词范围内): `daw` 可以理解为`delete a word`的缩写
 
 ### 组合快捷键
 

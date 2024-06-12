@@ -76,3 +76,14 @@ fi
 (将path切换为自己的path)
 
 保存后，Macbook将会启用cron作业来根据时间执行不同的任务。
+
+如果执行后到了指定时间会弹出询问框，可以在crontab脚本中加入`yes`命令自动响应，如: 
+
+```bash
+# 每天早上7点切换到浅色模式
+0 7 * * * yes | /path/to/toggle_dark_light.sh light
+
+# 每天晚上7点切换到深色模式
+0 19 * * * yes | /path/to/toggle_dark_light.sh dark
+```
+
