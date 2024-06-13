@@ -1,6 +1,6 @@
 ---
 # type: docs 
-title: Vim用法 (二)
+title: Vim用法 (二) -- 插入模式拓展
 date: 2024-06-12T16:16:02+08:00
 featured: false
 draft: false
@@ -51,3 +51,4 @@ authors:
 ## 运算
 
 我们可以在插入模式中，使用`<Ctrl-r>=` (Ctrl键加上r键再加上=键)来输入计算表达式，输入完后按下回车键即可在将结果插入到当前光标下。
+
