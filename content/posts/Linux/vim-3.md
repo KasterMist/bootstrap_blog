@@ -67,7 +67,7 @@ vim同样可以像其他IDE一样是用标签页来管理多个文件。vim的�
 
 打开和关闭标签页
 
-- 打开标签页: `:tabedit {filename}`
+- 打开标签页: `:tabe {filename}`，是`:tabedit {filename}`的简写。
 - 关闭当前标签页: `:tabc`，是`:tabclose`的简写。
 - 只保留当前标签页，关闭其他标签页: `:tabo`，是`:tabonly`的简写。
 
