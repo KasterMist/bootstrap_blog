@@ -1,0 +1,241 @@
+---
+# type: docs 
+title: Iso_suface
+date: 2024-06-18T15:28:33+08:00
+featured: false
+draft: true
+comment: true
+toc: true
+reward: true
+pinned: false
+carousel: false
+series:
+categories: []
+tags: []
+images: []
+---
+
+
+
+<!--more-->
+
+## iso\_surface代码结构:
+
+- evaluator.cpp / evaluator.h
+- hash\_grid.cpp / hash\_grid.h
+- index.h
+- iso\_method\_ours.cpp / iso\_method\_ours.h
+- iso\_surface\_generator.cpp / iso\_surface\_generator.h
+- mesh.cpp / mesh.h
+- multi\_level\_researcher.cpp / multi\_level\_research.h
+- qefnorm.h
+- surface\_reconstructor.cpp / surface\_reconstructor.h
+- traverse.h
+- visitorextract.cpp / visitorextract.h
+
+
+
+## 代码细节
+
+### evaluator
+
+用来初步处理global particles，得到一系列的Global数据
+
+##### singleEval()
+
+##### singleEvalWithGrad()
+
+##### GridEval()
+
+...
+
+计算梯度
+
+##### CheckSplash()
+
+##### CalculateMaxScalarConstR()
+
+##### CalculateMaxScalarVarR
+
+##### RecommendIsoValueConstR()
+
+##### RecommendIsoValueVarR()
+
+##### CalcParticlesNormal()
+
+##### general_kernel()
+
+##### gradient_kernel()
+
+##### AnisotropicInterpolate()
+
+##### AnisotropicInterpolateGrad()
+
+##### compute_xMeans()
+
+##### compute_G()
+
+##### compute_Gs_xMeans()
+
+##### wij()
+
+### hash\_grid
+
+
+
+### index
+
+
+
+### iso\_method\_ours
+
+包含了TNode(Tree node) struct的实现
+
+#### TNode
+
+##### 变量
+
+- SurfReconstructor* constructor;
+- Eigen::vector3f center;
+- float half\_length;
+- Eigen::vector4f node = Eigen::Vector4f::Zero(); **--> ???**
+- unsigned long long id; TNode的id
+- std::array\<std::shared\_ptr\<TNode\>, 8\>; TNode的children
+
+
+
+##### TNode(SurfReconstructor* surf\_constructor, unsigned long long id)
+
+对TNode进行初始化，children都设置为0, 赋值id
+
+##### TNode(SurfReconstructor* surf\_constructor, std::shared\_ptr\<TNode\> parent, Index i)
+
+对TNode进行初始化，对children设置为0的同时，也根据parent信息设置了depth, node, id.
+
+##### float calcErrorDMC()
+
+**???**
+
+##### void GenerateSampling()
+
+**???**
+
+##### void NodeSampling()
+
+**???**
+
+##### void Node CalcNode()
+
+**???**
+
+##### bool changeSignDMC()
+
+**???**
+
+
+
+### iso\_surface\_generator
+
+根据xmf文件生成isosurface
+
+这个生成的isosurface格式是什么，包含了哪些信息？生成的isosurface格式是surfReconstructor?
+
+### mesh
+
+包含了vect3 struct, Triangle struct, Mesh class的实现。
+
+这个mesh指的是什么？和surface有什么不同
+
+### multi\_level\_researcher
+
+
+
+### qefnorm
+
+
+
+### surface\_reconstructor
+
+#### SurfReconstructor
+
+包含了SurfReconstructor class的实现。包含了很多Global Parameters
+
+**这个SurfReconstructor是什么？**
+
+##### loadRootBox()
+
+根据\_GlobalParticles的点，对\_BoundingBox进行设置最大值和最小值。即通过\_GlobalParticles点更新\_BoundingBox范围
+
+##### generalModeRun()
+
+执行一整套运行流程
+
+##### shrinkBox()
+
+**???**
+
+##### resizeRootBoxConstR()
+
+
+
+##### resizeRootBoxVarR()
+
+
+
+##### genIsoOurs()
+
+
+
+##### checkEmptyAndCalcCurv()
+
+
+
+##### beforeSampleEval()
+
+
+
+##### afterSampleEval()
+
+
+
+### traverse
+
+
+
+### visitorextract
+
+
+
+## 项目流程
+
+开会讨论marching cubes的实现细节
+
+- project中使用iso\_surface的地方
+- 询问有没有实际的测试用例
+- 寻找提高并行效率的地方
+- CPU、GPU
+- bottom up的可能性
+- 是否需要重构八叉树，把cornerstone octree复现到project里面
+
+
+
+**使用流程**
+
+第一步: global particle --> Evaluator class
+
+第二步：evaluator class --> SurfReconstructor class
+
+第三步: 
+
+
+
+// 构建八叉树停止规则: 等直面平了，节点到了粒子半径的时候
+
+
+
+能否将cornerstone整体搬到project里面，先bottom up构建树，然后再进行进行剪枝。**在此project中，剪枝需要进行大量的数据计算。**
+
+
+
+idea1: 使用cornerstone得代码进行bottom up构建树。可以并不采用multi-processes构建，可以单进程构建，因为相比构建树，剪枝需要大量的运算。构建完树之后可以并行的进行剪枝。树的类型是Octree?Csarray?
+

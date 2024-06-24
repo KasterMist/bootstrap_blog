@@ -30,7 +30,9 @@ https://www.bilibili.com/video/BV1PL411M7bg/?spm_id_from=333.788&vd_source=302ea
 
 创建或编辑一个文件: `vim filename` (如果filename不存在，则创建该文件)
 
-## vim的三种模式
+## 常用vim语句
+
+### vim的三种模式
 
 1. 普通模式 (Normal mode) / 命令模式 (Command mode): 默认模式，用于导航、删除、复制等操作。
 2. 插入模式 (Insert mode): 用于输入文本。
@@ -251,7 +253,11 @@ vim打开文件后，在对应的声明的地方按`Ctrl-]`就可以自动跳转
 
 直接查找某个对象(比如class\_name)的定义的文件以及对应位置: `vim -t class_name`
 
+### 查找历史Ex命令
 
+输入`q:`即可打开一个命令历史窗口，我们可以在此窗口中查看之前执行过的Ex命令(以冒号开头的命令)的历史记录，并且可以编辑和重新执行这些命令。编辑命令遵循vim语法。编辑完成后，按下Enter键即可执行编辑好的命令。
+
+ 
 
 ## vim相关的插件
 

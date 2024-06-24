@@ -10,16 +10,44 @@ reward: true
 pinned: false
 carousel: false
 series:
-categories: ["Tutorial"]
+categories: ["Note"]
 tags: ["CUDA"]
 images: []
 ---
 
 在学习CUDA过程中会遇到很多问题，而这些问题过于零碎，无法进行系统化的分类，所以这篇文章主要记录平时遇到的CUDA使用的知识点。
 
+CUDA官方一堆的知识点: https://docs.nvidia.com/cuda/cuda-c-programming-guide/
+
 <!--more-->
 
+# cuda基础概念
 
+### thread hierarchy
+
+一个thread block的thread都在同一个multiprocessor core上，共享一个有限的内存资源。目前的GPU上一个thread block最多可以有1024个threads.
+
+grid当中的thread block由data size决定，thread block数量一般都超过系统中processors的数量
+
+同block的threads可以在共享内存中共享数据。也可以通过`__syncthreads()`来同步。
+
+#### thread block clusters
+
+更高层次的组织结构，包含多个thread blocks，适合在多个thread block之间协调任务。clusters也可以一维、二维或者三维。CUDA支持一个thread block cluster最多有8个thread block.
+
+在kernel函数中使用`__cluster_dims__(X, Y, Z)`即可以使用thread block cluster
+
+### memory hierarchy
+
+每个thread都有各自的private local memory，一个thread block包含一个里面的thread都可以访问的shared memory区域。所有的thread可以访问一个相同的global memory. 下面是英伟达官网给出的一个层级关系以及结构图:
+
+![CUDA零碎知识点_1](CUDA/CUDA零碎知识点_1.png)
+
+
+
+
+
+# c++中与GPU有关的操作
 
 #### thrust
 
