@@ -324,3 +324,21 @@ https://vimawesome.com/plugin/vim-colors-solarized-ours
 
 vim 文本编辑器的精确配色方案
 
+### surround.vim
+
+surround.vim是一个可以快速给某个字符外面添加"surroundings"的工具，如果想要将某个单词用大括号或其他字符括起来，使用这个工具可以快速达成。
+
+#### 使用语句
+
+https://vimawesome.com/plugin/surround-vim
+
+| 按键                                                   | 功能                                                   | 变化                                         |
+| ------------------------------------------------------ | ------------------------------------------------------ | -------------------------------------------- |
+| `cs"'`                                                 | 将单词外的""替换为''                                   | "Hello world!"  --> 'Hello world!'           |
+| `cs'<q>`                                               | 将单词外的''替换为xml的标签\<p\>                       | 'Hello world!'  -->  \<q\>Hello world!\</q\> |
+| `cst"`                                                 | 将单词外的xml标签替换为""                              | \<q\>Hello world!\</q\>  -->  "Hello world!" |
+| `ds"`                                                  | 将单词外的""删去                                       | "Hello world!"  -->  Hello world!            |
+| 光标Hello里面 `ysiw]`                                  | 将单词外加上[]                                         | Hello world  -->  [Hello] world!             |
+| 光标在Hello里面 `vaw` `S]`                             | 先切换到视图模式，全选单词，然后使用`S]`在单词外添加[] | Hello world  -->  [Hello] world!             |
+| 光标Hello里面 `ysiw[`, 或者 光标在Hello里面 `vaw` `S[` | 使用括号左边来让单词与括号之间隔一个空格               | Hello world  --> [ Hello ] world!            |
+
