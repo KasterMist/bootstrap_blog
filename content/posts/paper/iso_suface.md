@@ -239,3 +239,51 @@ images: []
 
 idea1: 使用cornerstone得代码进行bottom up构建树。可以并不采用multi-processes构建，可以单进程构建，因为相比构建树，剪枝需要大量的运算。构建完树之后可以并行的进行剪枝。树的类型是Octree?Csarray?
 
+
+
+### 实际样例: 
+
+1. 读取文件
+2. 创建ISOSurfaceGenerator class并调用generate()函数
+3. 如果并不存在需要生成的ply文件:
+   1. 创建SurfReconstructor并初始化
+   2. 读取h5文件
+   3. 判断IS\_CONST\_RADIUS，此样例为True，即只用一个radius数值。调用对应的SurfReconstructor构造函数
+   4. SurfReconstructor::setSplashFactor()
+   5. SurfReconstructor::Run()执行generalModeRun()
+      1. SurfReconstructor::loadRootBox(): 根据\_GlobalParticles的点，对\_BoundingBox进行设置最大值和最小值
+      2. IS\_CONST\_RADIUS --> 创建一个HashGrid对象并初始化和赋值
+      3. 创建Evaluator对象并初始化和赋值
+      4. Evaluator::compute\_Gs\_xMeans()
+      5. IS\_CONST\_RADIUS --> resizeRootBoxConstR()
+      6. 这时已经确认了max depth和min depth **???**
+      7. IS\_CONST\_RADIUS --> Evaluator::CalculateMaxScalarConstR()
+      8. IS\_CONST\_RADIUS --> Evaluator::RecommendIsoValueConstR()
+      9. CALC\_P\_NROMAL --> Evaluator::CalcParticlesNormal()
+      10. genIsoOurs()执行两次
+   6. 将计算结果写入ply文件
+
+
+
+一些问题: 
+
+1. SurfReconstructor::setSplashFactor()的功能
+2. SurfReconstructor::Run()功能
+   1. SurfReconstructor::loadRootBox():
+   2. Evaluator::compute\_Gs\_xMeans():
+   3. resizeRootBoxConstR(): 
+   4. 确认了max depth和min depth?
+   5. Evaluator::CalculateMaxScalarConstR()
+   6. Evaluator::RecommendIsoValueConstR()
+   7. Evaluator::CalcParticlesNormal()
+3. tree是在哪一步开始建立的
+4. genIsoOurs()的功能和作用
+5. constructor->Run()后writePlyFile(mesh, ply\_path), 说明了constructor->Run()修改了mesh信息?
+
+
+
+瓶颈问题:
+
+第一步自上而下建树(只考虑空间因素的八叉树)，只考虑空或者非空的情况。为了剪枝操作。其中对每个节点的采样需要大量计算。
+
+第二步自下而上的剪枝。
