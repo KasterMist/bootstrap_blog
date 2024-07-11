@@ -22,7 +22,16 @@ math: true
 
 ## 基本概念
 
+$$
+A = 
+\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{pmatrix}
+$$
 
+$A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$
 
 ### 矩阵的类型
 
@@ -111,7 +120,7 @@ $$
 对于一个$n \times n$的方阵$A$，行列式记作$det(A)$或$|A|$。行列式的具体计算方法随矩阵的维数变化而不同。
 
 - $1\times 1$矩阵: 对于 $A = [a]$，其行列式为$det(A) = a$.
-- $2 \times 2$矩阵: 对于 $$A = \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix}$$，其行列式为$det(A) = ad - bc$.
+- $2 \times 2$矩阵: 对于 $A = \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix}$，其行列式为$det(A) = ad - bc$.
 - $3 \times 3$矩阵: 对于$A = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \\ \end{pmatrix}$，其行列式为$det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$.
 
 对于更高维的矩阵，行列式可以通过递归展开，或使用高斯消元法将矩阵转化为上三角矩阵，再计算对角线元素的乘积。
