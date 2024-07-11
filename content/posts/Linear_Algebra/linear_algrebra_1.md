@@ -22,14 +22,14 @@ math: true
 
 ## 基本概念
 
-$$
+```math
 A = 
 \begin{pmatrix}
 1 & 2 & 3 \\
 4 & 5 & 6 \\
 7 & 8 & 9
 \end{pmatrix}
-$$
+```
 
 $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$
 
