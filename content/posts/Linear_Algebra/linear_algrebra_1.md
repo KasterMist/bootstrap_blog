@@ -111,8 +111,8 @@ $$
 对于一个$n \times n$的方阵$A$，行列式记作$det(A)$或$|A|$。行列式的具体计算方法随矩阵的维数变化而不同。
 
 - $1\times 1$矩阵: 对于 $A = [a]$，其行列式为$det(A) = a$.
-- $2 \times 2$矩阵: 对于 $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$，其行列式为$det(A) = ad - bc$.
-- $3 \times 3$矩阵: 对于$A = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \end{pmatrix}$，其行列式为$det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$.
+- $2 \times 2$矩阵: 对于 $A = \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix}$，其行列式为$det(A) = ad - bc$.
+- $3 \times 3$矩阵: 对于$A = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \\ \end{pmatrix}$，其行列式为$det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$.
 
 对于更高维的矩阵，行列式可以通过递归展开，或使用高斯消元法将矩阵转化为上三角矩阵，再计算对角线元素的乘积。
 
@@ -198,6 +198,8 @@ $$
    ​	我们得到$-v_1 + v_2 = 0$，即$v_2 = v_1$。因此，对应于$\lambda = 5$的特征向量是$v = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
 
 ​		 对于$\lambda = 2$:
+
+
 $$
 \begin{pmatrix} 
 	4 - 2 & 1 \\
