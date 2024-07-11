@@ -33,6 +33,13 @@ A =
 
 $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$
 
+
+
+{{< katex >}}
+A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}
+{{< /katex >}}
+
+
 ### 矩阵的类型
 
 #### 对角矩阵
