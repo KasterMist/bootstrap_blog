@@ -13,7 +13,7 @@ series:
 categories: ["Note"]
 tags: ["Math"]
 images: []
-markup: mmark
+math: true
 ---
 
 这部分将记录线性代数的相关知识点，简单用于复习以便工作中使用。
