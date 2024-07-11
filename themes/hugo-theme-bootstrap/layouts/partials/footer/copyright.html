@@ -2,16 +2,32 @@
   <small>{{- partial "helpers/copyright" . }}</small>
 </div>
 
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+              delimiters: [
+                  {left: "$$", right: "$$", display: true},
+                  {left: "$", right: "$", display: false}
+              ]
+          });
+    });
+</script>
+
 <!--MathJax-->
-<script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202401110101/show_ads_impl_fy2021.js" id="google_shimpl"></script>
+<!-- <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202401110101/show_ads_impl_fy2021.js" id="google_shimpl"></script>
 <script>
       MathJax = {
          tex: {
-            inlineMath: [['$','$'], ['\\(','\\)'], ['\\\\(', '\\\\)'] ],
-            displayMath: [['$$', '$$']],
+            inlineMath: [ ['$','$'], ['\\(','\\)'], ['\\\\(', '\\\\)'] ],
+            displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
             processEscapes: true,
             tags: 'ams',
          },
       };
    </script>
-<script type="text/javascript" async="" src="https://wuli.wiki/MathJax3/es5/tex-mml-chtml.js"></script>
+<script type="text/javascript" async="" src="https://wuli.wiki/MathJax3/es5/tex-mml-chtml.js"></script> -->
