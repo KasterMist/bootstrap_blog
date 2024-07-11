@@ -31,13 +31,13 @@ A =
 \end{pmatrix}
 ```
 
-$A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$
+$A = \begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \end{pmatrix}$
 
 
 
-{{< katex >}}
+dddd{{< katex >}}
 A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}
-{{< /katex >}}
+{{< /katex >}}dddd
 
 
 ### 矩阵的类型
@@ -127,8 +127,8 @@ $$
 对于一个$n \times n$的方阵$A$，行列式记作$det(A)$或$|A|$。行列式的具体计算方法随矩阵的维数变化而不同。
 
 - $1\times 1$矩阵: 对于 $A = [a]$，其行列式为$det(A) = a$.
-- $2 \times 2$矩阵: 对于 $A = \begin{pmatrix} a & b \\ c & d \\ \end{pmatrix}$，其行列式为$det(A) = ad - bc$.
-- $3 \times 3$矩阵: 对于$A = \begin{pmatrix} a & b & c \\ d & e & f \\ g & h & i \\ \end{pmatrix}$，其行列式为$det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$.
+- $2 \times 2$矩阵: 对于 $A = \begin{pmatrix} a & b \\\\ c & d \\ \end{pmatrix}$，其行列式为$det(A) = ad - bc$.
+- $3 \times 3$矩阵: 对于$A = \begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \end{pmatrix}$，其行列式为$det(A) = a(ei - fh) - b(di - fg) + c(dh - eg)$.
 
 对于更高维的矩阵，行列式可以通过递归展开，或使用高斯消元法将矩阵转化为上三角矩阵，再计算对角线元素的乘积。
 
@@ -168,7 +168,7 @@ $$
    $$
    A = 
    \begin{pmatrix}
-   	4 & 1 \\
+   	4 & 1 \\\\
    	2 & 3 	
    \end{pmatrix}
    $$
@@ -176,7 +176,7 @@ $$
 
    1. 构建特征方程:
       $$
-      det(A - \lambda I) = \\det \begin{pmatrix}   4 - \lambda & 1 \\   2 & 3 - \lambda   \end{pmatrix} = (4 - \lambda)(3 - \lambda) - 2 = \lambda^2 - 7\lambda + 10 = 0   \\
+      det(A - \lambda I) = \\det \begin{pmatrix}   4 - \lambda & 1 \\\\   2 & 3 - \lambda   \end{pmatrix} = (4 - \lambda)(3 - \lambda) - 2 = \lambda^2 - 7\lambda + 10 = 0   \\
       $$
    2. 求解这个特征多项式:
    $$
@@ -189,58 +189,60 @@ $$
    ​	 对于$\lambda = 5$: 
    $$
    \begin{pmatrix} 
-   	4 - 5 & 1 \\
+   	4 - 5 & 1 \\\\
    	2 & 3 - 5
    \end{pmatrix} 
    \begin{pmatrix}
-   	v_1 \\ 
-   	nv_2 
-   \end{pmatrix} 
-   = 
-   \begin{pmatrix} 
-   	-1 & 1 \\
-   	2 & -2 
-   \end{pmatrix} 
-   \begin{pmatrix} 
-   	v_1 \\ 
+   	v_1 \\\\ 
    	v_2 
    \end{pmatrix} 
    = 
    \begin{pmatrix} 
-   0 \\
+   	-1 & 1 \\\\
+   	2 & -2 
+   \end{pmatrix} 
+   \begin{pmatrix} 
+   	v_1 \\\\ 
+   	v_2 
+   \end{pmatrix} 
+   = 
+   \begin{pmatrix} 
+   0 \\\\
    0 
    \end{pmatrix}
    $$
-   ​	我们得到$-v_1 + v_2 = 0$，即$v_2 = v_1$。因此，对应于$\lambda = 5$的特征向量是$v = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$.
+   ​	我们得到$-v_1 + v_2 = 0$，即$v_2 = v_1$。因此，对应于$\lambda = 5$的特征向量是$v = \begin{pmatrix} 1 \\\\ 1 \end{pmatrix}$.
 
-​		 对于$\lambda = 2$:
+   ​	 对于$\lambda = 2$: 
 
-
-$$
+```math
 \begin{pmatrix} 
-	4 - 2 & 1 \\
-	2 & 3 - 2
+4 - 2 & 1 \\\\
+2 & 3 - 2
 \end{pmatrix} 
+
 \begin{pmatrix}
-	v_1 \\ 
-	nv_2 
+v_1 \\\\ 
+v_2 
 \end{pmatrix} 
 = 
 \begin{pmatrix} 
-	2 & 1 \\
-	2 & 1 
+2 & 1 \\\\
+2 & 1 
 \end{pmatrix} 
+
 \begin{pmatrix} 
-	v_1 \\ 
-	v_2 
+v_1 \\\\ 
+v_2 
 \end{pmatrix} 
 = 
 \begin{pmatrix} 
-0 \\
+0 \\\\
 0 
 \end{pmatrix}
-$$
-​		我们得到$2v_1 + v_2 = 0$，即$v_2 = -2v_1$。因此，对应于$\lambda = 2$的特征向量是$v = \begin{pmatrix} 1 \\ -2 \end{pmatrix}$.
+```
+
+​		我们得到$2v_1 + v_2 = 0$，即$v_2 = -2v_1$。因此，对应于$\lambda = 2$的特征向量是$v = \begin{pmatrix} 1 \\\\ -2 \end{pmatrix}$.
 
 
 
@@ -289,11 +291,11 @@ $$
 
 给定一个矩阵A:
 $$
-A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}
+A = \begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \end{pmatrix}
 $$
 通过高斯消元法:
 $$
-\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix} \xrightarrow{\text{R2} - 4\text{R1}} \begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 7 & 8 & 9 \end{pmatrix} \xrightarrow{\text{R3} - 7\text{R1}} \begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & -6 & -12 \end{pmatrix} \xrightarrow{\text{R3} - 2\text{R2}} \begin{pmatrix} 1 & 2 & 3 \\ 0 & -3 & -6 \\ 0 & 0 & 0 \end{pmatrix}
+\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \end{pmatrix} \xrightarrow{\text{R2} - 4\text{R1}} \begin{pmatrix} 1 & 2 & 3 \\\\ 0 & -3 & -6 \\\\ 7 & 8 & 9 \end{pmatrix} \xrightarrow{\text{R3} - 7\text{R1}} \begin{pmatrix} 1 & 2 & 3 \\\\ 0 & -3 & -6 \\\\ 0 & -6 & -12 \end{pmatrix} \xrightarrow{\text{R3} - 2\text{R2}} \begin{pmatrix} 1 & 2 & 3 \\\\ 0 & -3 & -6 \\\\ 0 & 0 & 0 \end{pmatrix}
 $$
 
 行简化后得到的矩阵有两个非零行，因此矩阵$A$的秩为2。
