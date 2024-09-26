@@ -47,6 +47,49 @@ grid当中的thread block由data size决定，thread block数量一般都超过�
 
 
 
+### GPU硬件中的对应关系
+
+https://zhuanlan.zhihu.com/p/670063380
+
+在GPU硬件中，**运算单元被划分成了SM (stream multiprocessor) -->SP (streaming processor)的层次，而相对应的在软件上也划分了grid-->block-->thread这样的结构**。
+
+#### SM (Stream Multiprocessor) 流式多处理器
+
+每个SM都有自己的寄存器文件、共享内存和缓存等资源，并且拥有很多Core资源，可以同时执行多个线程，可以说SM是GPU中的可独立计算单元。
+
+划分SM的原因:
+
+- 通过划分SM的主要目的是提高GPU的并行计算能力和资源利用率。
+- 在划分SM后，GPU就可以通过将将计算任务分解成多个小部分的工作分配给不同的SM并行执行，从而加快速度。
+- 划分SM还可以避免不同计算任务之间的资源竞争，提高GPU并行性能。
+
+一个SM由多个CUDA core组成，每个SM根据GPU架构的不同有不同数量的CUDA core.在这种情况下，由哪些线程资源来占有这些稀缺资源执行任务，就离不开Warp Scheduler调度器。
+
+#### Warp 线程束
+
+warp是最基本的执行单元，一般一个warp包含了32个并行的thread，这些thread只能执行**相同的指令**。假如一个SM最大只能存储1024个线程的信息，但一个SM可以拥有超过1024个线程。此时就需要使用warp来对线程进行调度。
+
+- 在一个SM中，可以有多个warp同时处于“活动”状态，但在某一时刻，SM只能真正执行某些warp，而其他warp会等待调度。
+- Warp并发主要体现在调度上。SM在同一个时间片内可以执行多个warp，也就是并发调度，但并不意味着这些warp真正“并行”执行。SM 会根据资源（如寄存器、执行单元等）在warp之间切换，以保持高效的利用率。因此，在一个SM中，多个warp是并发调度的，但具体的并行执行量取决于硬件资源。
+- **一个warp内的线程**：在硬件支持下，warp内的32个线程会一起调度，并且在同一个指令上执行不同的数据。尽管硬件层面可能会将这些线程分批处理，但从逻辑上它们是同时执行的。
+- **SM内多个warp**：在一个SM内，可以有多个warp被并发调度，但在某一时刻，只有部分warp真正在执行。其他warp可能在等待调度或因资源限制而暂时停顿。
+
+#### CUDA编程模型与GPU的映射关系
+
+在软件层面，我们会将计算任务分成多个可并行的子块，交给thread block来计算，在thread block内部，我们再将任务进一步划分成多块，由每个thread计算。GPU硬件也是采用了分层次的组织方式，被划分成多个SM，每个SM内部又有多个CUDA Core。CUDA thread和thread block最终是运行在CUDA Core和SM上面。
+
+一个grid可以包含多个SM，也可以访问global memory和constant memory
+
+一个block只能存在于一个SM中，而且一个SM包含多个block，每个block内的thread可以访问自己block的shared memory
+
+一个block有多个warp，每个warp有32个thread
+
+下图展示了一部分的映射关系:
+
+![CUDA编程模型与GPU的映射关系](CUDA/CUDA编程模型与GPU的映射关系.png)
+
+
+
 # c++中与GPU有关的操作
 
 #### thrust
