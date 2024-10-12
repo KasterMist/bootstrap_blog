@@ -27,7 +27,7 @@ VsCode给了官方文档可供查阅: https://github.com/microsoft/vscode-cmake-
 
 但是如果想要使用CMake Tools进行Debug并自定义程序参数和Debug参数的话，需要使用launch.json。不过对于“Debug using a launch.json file”，本人按照tutorial进行了launch.json配置，但无法实现Debug时添加参数的情况。
 
-后面发现可能是launch.json里面的设置无法对cmake.debugConfig里面进行配置，所以我采取了了在setting.json里面直接修改cmake.debugConfig里面的参数 (比如下面的代码)，之后证明可行。
+后面发现可能是launch.json里面的设置无法对cmake.debugConfig里面进行配置，所以我采取了了在setting.json里面直接修改cmake.debugConfig里面的参数 (比如下面的代码)，之后证明可行。从VsCode的另一部分的文档中https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/cmake-settings.md#command-substitution 可以知道CMake Tools的参数配置可以在setting.json中进行设置与修改。
 
 ```json
 "cmake.debugConfig": {
