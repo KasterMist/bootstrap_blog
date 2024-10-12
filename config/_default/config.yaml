@@ -1,7 +1,7 @@
 baseURL: https://kastermist.com
 title: Kaster Mist's Blog
 theme: hugo-theme-bootstrap 
-copyright: 'Copyright © 2000-{year} Kaster Mist. All Rights Reserved.'
+copyright: 'Copyright © 2023-{year} Kaster Mist. All Rights Reserved.'
 defaultContentLanguage: en
 # hasCJKLanguage: true # Uncomment it if your content contains Chinese/Japanese/Korean Languages.
 # defaultContentLanguageInSubdir: true
