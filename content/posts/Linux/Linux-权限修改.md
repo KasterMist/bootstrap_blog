@@ -2,7 +2,7 @@
 title:			"Linux 常用命令"
 subtitle:		""
 description: 	""
-date:        	2024-04-04
+date:        	2025-03-14
 #type:   		docs
 featured:    	false
 draft:    		false
